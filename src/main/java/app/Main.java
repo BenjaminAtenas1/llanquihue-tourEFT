@@ -542,11 +542,13 @@ public class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(opcionCliente.isSelected()){ //Si se selecciona cliente, se puede modificar los datos menos ID y orden de compra, ya que aquellos no deberían cambiar
+                    boolean encontrado = false;
                     int clienteAmodificar = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el ID del cliente.","ID CLiente", JOptionPane.INFORMATION_MESSAGE));
                     for (Registrable registrados : datos.getListaRegistrables()){
                         if (registrados instanceof Cliente) {
                             Cliente cliente = (Cliente) registrados;
                             if (cliente.getIdCliente() == clienteAmodificar) {
+                                encontrado = true;
                                 JOptionPane.showMessageDialog(null,"Puede editar nombre, RUT y Nro tarjeta.");
 
                                 JFrame ventanaCliente = new JFrame("Edición de cliente.");
@@ -660,11 +662,11 @@ public class Main extends JFrame {
                                         }
                                     }
                                 });
-                            }else if (cliente.getIdCliente() != clienteAmodificar){
-                                JOptionPane.showMessageDialog(null,"Cliente no encontrado.","Error",JOptionPane.WARNING_MESSAGE);
-                                break;
                             }
                         }
+                    }
+                    if (!encontrado) {
+                        JOptionPane.showMessageDialog(null, "Cliente no encontrado.", "Error", JOptionPane.WARNING_MESSAGE);
                     }
                 }else if(opcionGuia.isSelected()){ //Al guía se le puede modifcar todo salvo ID
                     int guiaAmodificar = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el ID del guía a modificar.","ID guía",JOptionPane.INFORMATION_MESSAGE));

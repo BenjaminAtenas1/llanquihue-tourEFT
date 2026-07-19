@@ -2,3 +2,5 @@ Cliente,juanito,20243244-1,321321321321,123,123,ExcursionCultural
 Guia,juanitio,20243244-1,321,PaseoLacustre
 Guia,pepito,20202202-2,654,ExcursionCultural
 Cliente,katrina,65654654-4,654654654654,654,654,PaseoLacustre
+Cliente,benjamin,20242342-2,321321321321,456,6546545,PaseoLacustre
+Cliente,pepito ,32321321-2,321321321321,123456,6546554,PaseoLacustre
