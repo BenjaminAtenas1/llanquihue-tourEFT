@@ -1,5 +1,14 @@
 package data;
 
+/**
+ * Esta clase gestiona los datos trabajados durante el uso del programa. Carga y guarda datos, crea la Arraylist donde se trabajarán
+ * las cosas, el archivo de texto y se agregar a la lista un objeto de la clase @link {ExcursionCultural} y @link {PaseoLacustre} (Relación fuerte).
+ *
+ * @author Benjamin Atenas
+ * @version 1.0
+ * @since 1.0
+ */
+
 import model.*;
 import javax.swing.*;
 import java.io.*;
@@ -7,6 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GestorDatos {
+    /**
+     * @param listaRegistrables ArrayList donde se guardarán todos los objetos que tengan la interfaz @link {Regsitrable}
+     * @param DATA_FILE en "informacion.txt" se escribe y se lee toda la información de la listaRegistrables
+     *
+     */
     private List<Registrable> listaRegistrables;
     private static final String DATA_FILE = ("informacion.txt");
 
@@ -21,7 +35,9 @@ public class GestorDatos {
     public void setListaRegistrables(List<Registrable> listaRegistrables) {
         this.listaRegistrables = listaRegistrables;
     }
-
+    /**
+     * @return método cargarDatos lee los datos de el archivo de texto, los transforma al objeto correspondiente y los guarda en el ArrayList
+     */
     public void cargarDatos() { //Cargar los datos desde archivo .txt y los transforma en objetos según a qué clase corresponda
         try (BufferedReader reader = new BufferedReader(new FileReader(DATA_FILE))) {
             ServicioTuristico servicio;
@@ -52,7 +68,9 @@ public class GestorDatos {
             JOptionPane.showMessageDialog(null, "Error al cargar información.", "Error", JOptionPane.WARNING_MESSAGE);
         }
     }
-
+    /**
+     * @return Método guardarInformacionAlCerrar lee los objetos del ArrayList y los escribe en el archivo de texto.
+     */
     public void guardarInformacionAlCerrar() { //Se recorren los objetos de la lista, y según el instanceof, escribe el objeto en el archivo
         //Pero antes coloca un "cliente" o "guia" para luego, al cargar datos, se sepa a que clase pertenece
         try {

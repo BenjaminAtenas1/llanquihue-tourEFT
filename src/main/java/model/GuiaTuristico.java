@@ -1,8 +1,23 @@
 package model;
 
+/**
+ *
+ * Esta subclase representa al guia turistico. Hereda de @link {Persona}
+ * Esta subclase es compuesta de @link {ServicioTuristico}
+ * @See {Persona}
+ * @author Benjamin Atenas
+ * @version 1.0
+ * @since 1.0
+ */
+
 import javax.swing.*;
 
 public class GuiaTuristico extends Persona implements Registrable{
+    /**
+     * @param idCliente Dato de tipo entero que representa un ID único para cada guia turistico.
+     * @param servicioAdquirido Dato de tipo ServicioTuristico que representa el servicio que tiene a cargo el guia.
+     *
+     */
     private int idTrabajador;
     private ServicioTuristico servicioTuristicoAcargo;
 
@@ -26,11 +41,17 @@ public class GuiaTuristico extends Persona implements Registrable{
     public void setServicioTuristicoAcargo(ServicioTuristico servicioTuristicoAcargo) {
         this.servicioTuristicoAcargo = servicioTuristicoAcargo;
     }
+    /**
+     * @return Método que permite llamar la información del guia en el Main
+     */
     @Override
     public String mostrarInformacion(){
         return "El trabajador " + nombreCompleto + " ID " + idTrabajador + " está a cargo del tour " +
                 servicioTuristicoAcargo.getNombreTour() + ".";
     }
+    /**
+     * @return Método que permite llamar la información del guia en el Main
+     */
     @Override
     public String toString() {
         return "Nombre: " + nombreCompleto + " | Rut: " + rut + " | ID trabajador: " + idTrabajador + " | Tour a cargo: "

@@ -1,5 +1,18 @@
 package app;
-
+/**
+ * Clase principal muestra interfaz de usuario para manejo de datos
+ *
+ * El objetivo de este programa es manejar datos de clientes los cuales datos y un servicio asignado representado en una clase.
+ * También gestiona trabajadores los cuales tambien tienen un servicio asignado a cargo.
+ * Los servicios estan previamente definidos ya que estos no cambiarían a menos que el cliente lo solicite o quiera añadir más servicios.
+ * Cada vez que se ejecute el programa, los datos existententes serán cargados desde un archivo .txt y los nuevos
+ * y/o modificaciones se guardaran cada vez que termine el programa
+ *
+ * @author Benjamin Atenas
+ * @version 1.0
+ * @since 1.0
+ *
+ */
 import model.*;
 import data.GestorDatos;
 import javax.swing.*;
@@ -10,6 +23,17 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class Main extends JFrame {
+
+    /**
+     * El main ejecuta el programa
+     *
+     * Se muestra interfaz de usuario donde se trabajarán los datos.
+     *
+     * @param args
+     * @link El método cargarInformación y guardarInformacionAlCerrar está determinado en la clase {GestorDatos}
+     * @link La validación del rut y de tarjeta del cliente están en la clase {Validaciones}
+     */
+
     GestorDatos datos = new GestorDatos();
 
     public Main() {
